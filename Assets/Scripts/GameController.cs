@@ -13,8 +13,7 @@ public class GameController : MonoBehaviour {
 	public Text scoreText;
 	private int score;
 
-
-	public GameObject hazard;
+	public GameObject[] asteroids;
 
 	public float minX;
 	public float maxX;
@@ -56,7 +55,8 @@ public class GameController : MonoBehaviour {
 				//      to the GameController via the Start(...) method.  This meant that the
 				//      DestroyByContact script relied upon a singleton object.  So, wiring things
 				//      via the GameController itself just seemed a lot cleaner to me.
-				GameObject h = Instantiate<GameObject> (this.hazard, spawnPosition, spawnRotation);
+				GameObject prefab = this.asteroids[Random.Range(0, this.asteroids.Length)];
+				GameObject h = Instantiate<GameObject> (prefab, spawnPosition, spawnRotation);
 				DestroyByContact dbc = h.GetComponent<DestroyByContact> ();
 				dbc.gameController = this;
 
