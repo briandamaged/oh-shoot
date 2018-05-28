@@ -13,9 +13,4 @@ public class RandomSizer : MonoBehaviour {
 
 		this.transform.localScale = new Vector3 (s, s, s);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
