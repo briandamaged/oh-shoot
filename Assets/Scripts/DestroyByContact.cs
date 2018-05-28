@@ -19,13 +19,15 @@ public class DestroyByContact : MonoBehaviour {
 
 		Instantiate (this.explosion, this.transform.position, this.transform.rotation);
 
-		if(other.tag == "Player") {
-			Instantiate (this.playerExplosion, other.transform.position, other.transform.rotation);
-		}
-
 		Destroy (other.gameObject);
 		Destroy (this.gameObject);
 
-		this.gameController.AddScore (this.score);
+		if(other.tag == "Player") {
+			Instantiate (this.playerExplosion, other.transform.position, other.transform.rotation);
+			this.gameController.LoseGame ();
+		} else {
+			this.gameController.AddScore (this.score);
+		}
+
 	}
 }
