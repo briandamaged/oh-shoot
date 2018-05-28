@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DestroyByContact : MonoBehaviour {
 
+	public GameController gameController;
+
+	public int score = 1;
+
 	public GameObject explosion;
 
 	public GameObject playerExplosion;
@@ -22,5 +26,6 @@ public class DestroyByContact : MonoBehaviour {
 		Destroy (other.gameObject);
 		Destroy (this.gameObject);
 
+		this.gameController.AddScore (this.score);
 	}
 }
